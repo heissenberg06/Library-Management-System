@@ -2,6 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import sys
+import MySQLdb
 
 from PyQt5.uic import loadUiType
 
@@ -11,6 +12,15 @@ class MainApp(QMainWindow, ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+
+    
+    def Handle_UI_Changes(self):
+        pass
+
+    
+    def Handle_Buttons(self):
+        pass
+
 
 
  
