@@ -13,6 +13,7 @@ class MainApp(QMainWindow, ui):
         QMainWindow.__init__(self)
         self.setupUi(self)
         self.Handle_UI_Changes()
+        self.Show_Category()
 
     
     def Handle_UI_Changes(self):
@@ -99,6 +100,28 @@ class MainApp(QMainWindow, ui):
 
         self.database.commit()
         print('new category has added')
+        self.statusBar().showMessage('new category added')
+
+    def Show_Category(self):
+        self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect to database
+        self.cur = self.database.cursor()
+
+        self.cur.execute(''' SELECT category_name FROM category''')
+        data = self.cur.fetchall()
+
+        print(data)
+        self.tableWidget_2.insertRow(0)
+
+        if data:
+            self.tableWidget_2.insertRow(0)
+            for row , form in enumerate(data):
+                for column , item in enumerate(form):
+                    self.tableWidget_2.setItem(row, column, QTableWidgetItem(str(item)))
+                    column +=1
+
+                row_position = self.tableWidget_2.rowCount()
+                self.tableWidget_2.insertRow(row_position)
+
 
     def Add_Author(self):
         self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect to database
@@ -116,6 +139,7 @@ class MainApp(QMainWindow, ui):
 
         self.database.commit()
         print('new author has added')
+        self.statusBar().showMessage('new author added')
 
     def Add_Publisher(self):
         self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect to database
@@ -133,8 +157,9 @@ class MainApp(QMainWindow, ui):
 
         self.database.commit()
         print('new publisher has added')
+        self.statusBar().showMessage('new publisher added')
         
- 
+
 def main():
     app = QApplication(sys.argv)
     window = MainApp()
