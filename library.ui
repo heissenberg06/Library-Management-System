@@ -169,7 +169,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -371,7 +371,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -823,7 +823,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>askdmakd</string>
+        <string/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -839,7 +839,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>asdasdasd</string>
+        <string/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -956,7 +956,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>asda</string>
+        <string/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -1050,7 +1050,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>asdasdasd</string>
+        <string/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -1066,7 +1066,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>askdmakd</string>
+        <string/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -1127,7 +1127,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">

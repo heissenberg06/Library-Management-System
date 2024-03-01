@@ -33,6 +33,9 @@ class MainApp(QMainWindow, ui):
         self.pushButton_7.clicked.connect(self.Add_New_Book)
 
         self.pushButton_14.clicked.connect(self.Add_Category)
+        self.pushButton_15.clicked.connect(self.Add_Author)
+        self.pushButton_16.clicked.connect(self.Add_Publisher)
+
 
     def Show_Themes(self):
         self.groupBox_3.show()
@@ -81,7 +84,7 @@ class MainApp(QMainWindow, ui):
 
 
     def Add_Category(self):
-        self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect the database
+        self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect to database
         self.cur = self.database.cursor()
 
         category_name = self.lineEdit_21.text()
@@ -97,12 +100,40 @@ class MainApp(QMainWindow, ui):
         self.database.commit()
         print('new category has added')
 
-
     def Add_Author(self):
-        pass
+        self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect to database
+        self.cur = self.database.cursor()
+
+        author_name = self.lineEdit_22.text()
+
+        self.cur.execute('''
+            INSERT INTO authors (author_name) VALUES (%s)
+        ''' , (author_name, )) #we should put a comma after category_name
+
+        #I have taken an error right here, which is about idcategory's auto increment
+        #I solved the problem thanks to this line:
+        #ALTER TABLE users ADD id int NOT NULL AUTO_INCREMENT primary key
+
+        self.database.commit()
+        print('new author has added')
 
     def Add_Publisher(self):
-        pass
+        self.database = MySQLdb.connect(host='localhost', user='root' , password='123456528' , database='library') #connect to database
+        self.cur = self.database.cursor()
+
+        publisher_name = self.lineEdit_23.text()
+
+        self.cur.execute('''
+            INSERT INTO publisher (publisher_name) VALUES (%s)                #INSERT INTO `library`.`category` (`category_name`) VALUES ('SAA');
+        ''' , (publisher_name, )) #we should put a comma after category_name
+
+        #I have taken an error right here, which is about idcategory's auto increment
+        #I solved the problem thanks to this line:
+        #ALTER TABLE users ADD id int NOT NULL AUTO_INCREMENT primary key
+
+        self.database.commit()
+        print('new publisher has added')
+        
  
 def main():
     app = QApplication(sys.argv)
